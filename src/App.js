@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ViewAccount from './ViewAccount';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      accessToken: '00D7F000000y9nJ!AR4AQJWjc1HDPtQWeBYHQcn0TBW8uRD67WVJd_5ZviIYHqU2kVuPbafSAWAcONHEDgwy2oiBsSkxcDGLcxQxXyNRwRxIyatI',
+      accountId: '0017F00000hVCGz'
+    };
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Salesforce UI API Demo with React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-intro">
+          <ViewAccount accessToken={this.state.accessToken} accountId={this.state.accountId} />
+        </div>
       </div>
     );
   }
